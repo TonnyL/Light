@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import io.github.tonnyl.light.Light;
 
@@ -24,7 +25,14 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_success).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Light.success(fab, "Success", Light.LENGTH_SHORT).show();
+                Light.success(fab, "Success", Light.LENGTH_SHORT)
+                        .setAction("Action", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(MainActivity.this, "Hello, Light!", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
             }
         });
 
@@ -53,6 +61,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Light.make(fab, "Normal", Light.TYPE_NORMAL, Light.LENGTH_SHORT).show();
+            }
+        });
+
+        findViewById(R.id.button_custom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Light.make(
+                        fab,
+                        "Awesome Snackbar",
+                        R.drawable.ic_album_white_24dp,
+                        R.color.color_cyan,
+                        android.R.color.white,
+                        Light.LENGTH_INDEFINITE,
+                        R.drawable.ic_done_all_white_24dp,
+                        R.color.colorAccent)
+                        .setAction("Done all", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(MainActivity.this, "Hello, Light!", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
             }
         });
 

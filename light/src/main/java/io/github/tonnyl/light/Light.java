@@ -11,6 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -53,7 +54,7 @@ public class Light {
                 text,
                 R.drawable.ic_success_white_24dp,
                 R.color.color_success,
-                R.color.accent_color_success,
+                android.R.color.white,
                 duration);
     }
 
@@ -62,7 +63,7 @@ public class Light {
                 text,
                 R.drawable.ic_error_24dp,
                 R.color.color_error,
-                R.color.accent_color_error,
+                android.R.color.white,
                 duration);
     }
 
@@ -71,7 +72,7 @@ public class Light {
                 text,
                 R.drawable.ic_info_outline_white_24dp,
                 R.color.color_info,
-                R.color.accent_color_info,
+                android.R.color.white,
                 duration);
     }
 
@@ -80,8 +81,12 @@ public class Light {
                 text,
                 R.drawable.ic_warning_outline_white_24dp,
                 R.color.color_warning,
-                R.color.accent_color_warning,
+                android.R.color.white,
                 duration);
+    }
+
+    public static Snackbar normal(@NonNull View view, @NonNull CharSequence text, int duration) {
+        return Snackbar.make(view, text, duration);
     }
 
     public static Snackbar make(@NonNull View view, @NonNull CharSequence text, Drawable textIcon,
@@ -95,17 +100,21 @@ public class Light {
         textView.setCompoundDrawablesWithIntrinsicBounds(textIcon, null, null, null);
         textView.setCompoundDrawablePadding(16);
         textView.setGravity(Gravity.CENTER);
+        textView.setTextColor(textColor);
 
         return snackbar;
     }
 
     public static Snackbar make(@NonNull View view, @NonNull CharSequence text, Drawable textIcon,
                                 @ColorInt int backgroundColor, @ColorInt int textColor,
-                                int duration, @NonNull CharSequence action, Drawable actionIcon, @ColorInt int actionTextColor) {
-        Snackbar snackbar = Snackbar.make(view, text, duration);
+                                int duration, Drawable actionIcon, @ColorInt int actionTextColor) {
+        Snackbar snackbar = make(view, text, textIcon, backgroundColor, textColor, duration);
 
-        View mView = snackbar.getView();
-        mView.setBackgroundColor(backgroundColor);
+        Button actionButton = (Button) snackbar.getView().findViewById(android.support.design.R.id.snackbar_action);
+        actionButton.setCompoundDrawablesWithIntrinsicBounds(actionIcon, null, null, null);
+        actionButton.setCompoundDrawablePadding(16);
+        actionButton.setGravity(Gravity.CENTER);
+        actionButton.setTextColor(actionTextColor);
 
         return snackbar;
     }
@@ -123,7 +132,7 @@ public class Light {
 
     public static Snackbar make(@NonNull View view, @StringRes int textRes, @DrawableRes int textIconRes,
                                 @ColorRes int backgroundColorRes, @ColorRes int textColorRes,
-                                int duration, @StringRes int actionRes, @DrawableRes int actionIconRes, @ColorRes int actionTextColorRes) {
+                                int duration, @DrawableRes int actionIconRes, @ColorRes int actionTextColorRes) {
         Context context = view.getContext();
         return make(view,
                 context.getString(textRes),
@@ -131,7 +140,6 @@ public class Light {
                 ContextCompat.getColor(context, backgroundColorRes),
                 ContextCompat.getColor(context, textColorRes),
                 duration,
-                context.getString(actionRes),
                 ContextCompat.getDrawable(context, actionIconRes),
                 ContextCompat.getColor(context, actionTextColorRes));
     }
@@ -149,7 +157,7 @@ public class Light {
 
     public static Snackbar make(@NonNull View view, @NonNull CharSequence text, @DrawableRes int textIconRes,
                                 @ColorRes int backgroundColorRes, @ColorRes int textColorRes,
-                                int duration, @NonNull CharSequence action, @DrawableRes int actionIconRes, @ColorRes int actionTextColorRes) {
+                                int duration, @DrawableRes int actionIconRes, @ColorRes int actionTextColorRes) {
         Context context = view.getContext();
         return make(view,
                 text,
@@ -157,7 +165,6 @@ public class Light {
                 ContextCompat.getColor(context, backgroundColorRes),
                 ContextCompat.getColor(context, textColorRes),
                 duration,
-                action,
                 ContextCompat.getDrawable(context, actionIconRes),
                 ContextCompat.getColor(context, actionTextColorRes));
     }
