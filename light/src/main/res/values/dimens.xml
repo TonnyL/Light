@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="light_padding_top">14dp</dimen>
+    <dimen name="light_padding_bottom">14dp</dimen>
+    <dimen name="light_padding_left">12dp</dimen>
+    <dimen name="light_padding_right">12dp</dimen>
+    <dimen name="light_padding_normal">8dp</dimen>
+</resources>

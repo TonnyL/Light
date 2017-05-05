@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="64dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/color_success"
+        android:text="Success"
+        android:id="@+id/button_success"
+        android:textColor="@color/accent_color_success"/>
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/color_info"
+        android:text="Info"
+        android:id="@+id/button_info"
+        android:textColor="@color/accent_color_info"/>
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="64dp"
+        android:background="@drawable/button_background"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/color_warning"
+        android:text="Warning"
+        android:id="@+id/button_warning"
+        android:textColor="@color/accent_color_warning"/>
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/color_error"
+        android:text="Error"
+        android:id="@+id/button_error"
+        android:textColor="@color/accent_color_error"/>
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Normal"
+        android:id="@+id/button_normal"
+        android:textColor="@color/colorAccent"/>
+
+
+</LinearLayout>

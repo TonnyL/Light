@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_error">#F44336</color>
+    <color name="color_info">#3F51B5</color>
+    <color name="color_warning">#FF9800</color>
+    <color name="color_success">#4CAF50</color>
+
+    <color name="accent_color_error">#009688</color>
+    <color name="accent_color_info">#FFC107</color>
+    <color name="accent_color_warning">#2196F3</color>
+    <color name="accent_color_success">#03A9F4</color>
+
+</resources>
