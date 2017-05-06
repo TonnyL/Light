@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
@@ -20,4 +21,18 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:design:25.3.1'
+}
+
+// jcenter configuration for novoda's bintray-release
+// $ ./gradlew clean build bintrayUpload
+// -PbintrayUser=BINTRAY_USERNAME
+// -PbintrayKey=BINTRAY_KEY
+// -PdryRun=false
+publish {
+    userOrg = 'tonnyl'
+    groupId = 'io.github.tonnyl'
+    artifactId = 'light'
+    publishVersion = '1.0.0'
+    desc = 'The usual Snackbar, but elegant.'
+    website = 'https://tonnyl.github.io'
 }

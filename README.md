@@ -1,4 +1,5 @@
 # Light
+[![Build Status](https://travis-ci.org/TonnyL/Light.svg?branch=master)](https://travis-ci.org/TonnyL/Light)
 
 <div align="center">
 	<img src="./images/ic_launcher.png" width="128">
@@ -6,16 +7,64 @@
 
 The usual Snackbar, but elegant. Inspired by [Toasty](https://github.com/GrenderG/Toasty).
 
-## Attention
-**Not finished yet!**
-
 ## Screenshots
 
-Success | Info | Warning
----- | ---- | ----
-![Success](./images/success.png) | ![Info](./images/info.png) | ![Warning](./images/warning.png)
-**Error** | **Normal** | **Custom**
-![Error](./images/error.png) | ![Normal](./images/normal.png) | ![Custom](./images/custom.png)
+<table>
+	<tr>
+		<td>**Success**</td>
+		<td>**Info**</td>
+		<td>**Warning**</td>
+	</tr>
+	<tr>
+		<td>![Success](./images/success.png)</td>
+		<td>![Info](./images/info.png)</td>
+		<td>![Warning](./images/warning.png)</td>
+	</tr>
+	<tr>
+		<td>**Error**</td>
+		<td>**Normal**</td>
+		<td>**Custom**</td>
+	</tr>
+	<tr>
+		<td>![Error](./images/error.png)</td>
+		<td>![Normal](./images/normal.png)</td>
+		<td>![Custom](./images/custom.png)</td>
+	</tr>
+</table>
+
+## Download
+
+### Gradle
+
+Add the code below to your **root** `build.gradle` file (`NOT` your module `build.gradle` file, check [here](./build.gradle/#L15-L19) for example).
+
+```groovy
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+```
+
+Add code below to your **module**'s `build.gradle` file:
+
+```groovy
+dependencies {
+	// Other dependencies here.
+	compile 'io.github.tonnyl:light:1.0.0'
+}
+```
+
+### Maven
+
+```xml
+<dependency>
+  <groupId>io.github.tonnyl</groupId>
+  <artifactId>light</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
 
 ## Usage
 
@@ -99,8 +148,26 @@ Light.make(
 
 ## Extra
 
-[You can pass formatted text to Light!](./app/src/main/java/io/github/tonnyl/sample/MMainActivity.java/#L68-L78)
+[You can pass formatted text to Light!](./app/src/main/java/io/github/tonnyl/sample/MMainActivity.java/#L84-L91)
 
 ## Pull Request
 
 Have some new ideas or find a bug? Do not hesitate to open an `issue` and make a `pull request`.
+
+## License
+
+```
+Copyright 2017 lizhaotailang
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```

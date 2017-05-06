@@ -1,3 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="" />
+  <settings default="ApacheLicense">
+    <module2copyright>
+      <element module="MyApacheLicenseScope" copyright="ApacheLicense" />
+    </module2copyright>
+  </settings>
 </component>
