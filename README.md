@@ -11,24 +11,24 @@ The usual Snackbar, but elegant. Inspired by [Toasty](https://github.com/Grender
 
 <table>
 	<tr>
-		<td>**Success**</td>
-		<td>**Info**</td>
-		<td>**Warning**</td>
+		<td> <strong>Success</strong> </td>
+		<td> <strong>Info</strong> </td>
+		<td> <strong>Warning</strong> </td>
 	</tr>
 	<tr>
-		<td>![Success](./images/success.png)</td>
-		<td>![Info](./images/info.png)</td>
-		<td>![Warning](./images/warning.png)</td>
+		<td> <img src="./images/success.png" /> </td>
+		<td> <img src="./images/info.png" /> </td>
+		<td> <img src="./images/warning.png" /> </td>
 	</tr>
 	<tr>
-		<td>**Error**</td>
-		<td>**Normal**</td>
-		<td>**Custom**</td>
+		<td> <strong>Error</strong> </td>
+		<td> <strong>Normal</strong> </td>
+		<td> <strong>Custom</strong> </td>
 	</tr>
 	<tr>
-		<td>![Error](./images/error.png)</td>
-		<td>![Normal](./images/normal.png)</td>
-		<td>![Custom](./images/custom.png)</td>
+		<td> <img src="./images/error.png" /> </td>
+		<td> <img src="./images/normal.png" /> </td>
+		<td> <img src="./images/custom.png" /> </td>
 	</tr>
 </table>
 
