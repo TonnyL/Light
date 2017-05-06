@@ -4,12 +4,17 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import io.github.tonnyl.light.Light;
+
+import static android.graphics.Typeface.BOLD_ITALIC;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +65,14 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_normal).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Light.make(fab, "Normal", Light.TYPE_NORMAL, Light.LENGTH_SHORT).show();
+                String prefix = "Formatted ";
+                String highlight = "bold italic";
+                String suffix = " text";
+                SpannableStringBuilder ssb = new SpannableStringBuilder(prefix).append(highlight).append(suffix);
+                int prefixLen = prefix.length();
+                ssb.setSpan(new StyleSpan(BOLD_ITALIC),
+                        prefixLen, prefixLen + highlight.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                Light.make(fab, ssb, Light.TYPE_NORMAL, Light.LENGTH_SHORT).show();
             }
         });
 
