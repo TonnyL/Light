@@ -46,7 +46,7 @@ allprojects {
 }
 ```
 
-Add code below to your **module**'s `build.gradle` file:
+Add the code below to your **module**'s `build.gradle` file:
 
 ```groovy
 dependencies {
@@ -148,7 +148,7 @@ Light.make(
 
 ## Extra
 
-[You can pass formatted text to Light!](./app/src/main/java/io/github/tonnyl/sample/MMainActivity.java/#L84-L91)
+[You can pass formatted text to Light!](./app/src/main/java/io/github/tonnyl/sample/MainActivity.java/#L84-L91)
 
 ## Pull Request
 
