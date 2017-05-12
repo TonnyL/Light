@@ -7,7 +7,6 @@ android:
     - build-tools-25.0.2
     - android-25
     - extra-android-m2repository
-    - sys-img-armeabi-v7a-android-22
 
 jdk:
   - oraclejdk8
@@ -16,12 +15,4 @@ notifications:
   email: false
 
 script:
-  - ./gradlew build jacocoTestReport assembleAndroidTest
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
-  - ./gradlew connectedCheck
-
-after_success:
-    - bash <(curl -s https://codecov.io/bash)
+  - ./gradlew assemble check

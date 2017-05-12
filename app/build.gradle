@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'jacoco-android'
 
 android {
     compileSdkVersion 25
