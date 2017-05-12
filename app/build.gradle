@@ -22,14 +22,6 @@ android {
             testCoverageEnabled true
         }
     }
-    productFlavors {
-        free {
-            applicationId 'io.github.tonnyl.sample.free'
-        }
-        paid {
-            applicationId 'io.github.tonnyl.sample'
-        }
-    }
 }
 
 dependencies {
