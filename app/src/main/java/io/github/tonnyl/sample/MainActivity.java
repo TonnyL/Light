@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 int prefixLen = prefix.length();
                 ssb.setSpan(new StyleSpan(BOLD_ITALIC),
                         prefixLen, prefixLen + highlight.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                Light.make(fab, ssb, Light.TYPE_NORMAL, Light.LENGTH_SHORT).show();
+                Light.make(fab, ssb.toString(), Light.TYPE_NORMAL, Light.LENGTH_SHORT).show();
             }
         });
 
@@ -111,13 +111,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                         })
                         .show();
-            }
-        });
-
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
