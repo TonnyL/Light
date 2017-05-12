@@ -2,7 +2,7 @@ language: android
 
 env:
   global:
-    - ANDROID_TARGET=android-25
+    - ANDROID_TARGET=android-22
     - ANDROID_ABI=armeabi-v7a
 
 android:
