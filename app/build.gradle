@@ -1,12 +1,17 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def configuration = rootProject.ext.configuration
+def libraries = rootProject.ext.libraries
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion configuration.compileSdkVersion
+    buildToolsVersion configuration.buildToolsVersion
     defaultConfig {
         applicationId "io.github.tonnyl.sample"
-        minSdkVersion 14
-        targetSdkVersion 25
+        minSdkVersion configuration.minSdkVersion
+        targetSdkVersion configuration.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,18 +27,29 @@ android {
             testCoverageEnabled true
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    androidTestCompile 'com.android.support.test:runner:0.5'
-    androidTestCompile 'com.android.support.test:rules:0.5'
-    androidTestCompile 'com.android.support:support-annotations:25.3.1'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
-    compile project(':light')
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation project(':light')
+
+    implementation "com.android.support:appcompat-v7:${libraries.supportLibraryVersion}"
+    implementation "com.android.support:design:${libraries.supportLibraryVersion}"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${libraries.espressoVersion}"
+    androidTestImplementation "com.android.support.test:runner:${libraries.supportTestLibVersion}"
+    androidTestImplementation "com.android.support.test:rules:${libraries.supportTestLibVersion}"
+    androidTestImplementation "com.android.support:support-annotations:${libraries.supportLibraryVersion}"
+    testImplementation "junit:junit:${libraries.junitVersion}"
+}
+
+repositories {
+    mavenCentral()
 }

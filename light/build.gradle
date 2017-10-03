@@ -1,17 +1,21 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.novoda.bintray-release'
 
+def configuration = rootProject.ext.configuration
+def libraries = rootProject.ext.libraries
+
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion configuration.compileSdkVersion
+    buildToolsVersion configuration.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 25
+        minSdkVersion configuration.minSdkVersion
+        targetSdkVersion configuration.targetSdkVersion
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     lintOptions {
         abortOnError false
@@ -19,8 +23,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:design:25.3.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:design:${libraries.supportLibraryVersion}"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
 
 // jcenter configuration for novoda's bintray-release
@@ -32,7 +40,7 @@ publish {
     userOrg = 'tonnyl'
     groupId = 'io.github.tonnyl'
     artifactId = 'light'
-    publishVersion = '1.0.0'
+    publishVersion = '1.1.0'
     desc = 'The usual Snackbar, but elegant.'
     website = 'https://tonnyl.github.io'
 }
