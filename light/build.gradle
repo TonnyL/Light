@@ -23,6 +23,13 @@ android {
 }
 
 dependencies {
+
+    // Forced using a specific version of Kotlin
+    configurations.all {
+        resolutionStrategy {
+            force "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+        }
+    }
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:design:${libraries.supportLibraryVersion}"
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
@@ -31,6 +38,12 @@ repositories {
     mavenCentral()
 }
 
+// Disable creating javadocs
+tasks.withType(Javadoc) {
+    enabled = false
+}
+
+// Type these code in a single line to upload the library to jfrog.
 // jcenter configuration for novoda's bintray-release
 // $ ./gradlew clean build bintrayUpload
 // -PbintrayUser=BINTRAY_USERNAME

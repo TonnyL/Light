@@ -65,6 +65,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun success(view: View,
                     text: CharSequence,
                     duration: Int = Snackbar.LENGTH_SHORT
@@ -91,6 +92,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun success(view: View,
                     @StringRes textId: Int,
                     duration: Int = Snackbar.LENGTH_SHORT
@@ -116,6 +118,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun error(view: View,
                   text: CharSequence,
                   duration: Int = Snackbar.LENGTH_SHORT
@@ -140,6 +143,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun error(view: View,
                   @StringRes textId: Int,
                   duration: Int = Snackbar.LENGTH_SHORT
@@ -164,6 +168,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun info(view: View,
                  text: CharSequence,
                  duration: Int = Snackbar.LENGTH_SHORT
@@ -189,6 +194,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun info(view: View,
                  @StringRes textId: Int,
                  duration: Int = Snackbar.LENGTH_SHORT
@@ -214,6 +220,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun warning(view: View,
                     text: CharSequence,
                     duration: Int = Snackbar.LENGTH_SHORT
@@ -239,6 +246,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun warning(view: View,
                     @StringRes textId: Int,
                     duration: Int = Snackbar.LENGTH_SHORT
@@ -264,6 +272,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun normal(view: View,
                    text: CharSequence,
                    duration: Int = Snackbar.LENGTH_SHORT
@@ -289,6 +298,7 @@ class Light {
          *
          * @return The Snackbar that will be displayed.
          */
+        @JvmStatic
         fun normal(view: View,
                    @StringRes textId: Int,
                    duration: Int = Snackbar.LENGTH_SHORT
@@ -316,6 +326,7 @@ class Light {
          *
          * @return The customized Snackbar that will be displayed.
          */
+        @JvmStatic
         fun make(view: View,
                  text: CharSequence,
                  duration: Int = Snackbar.LENGTH_SHORT,
@@ -358,6 +369,7 @@ class Light {
          *
          * @return The customized Snackbar that will be displayed.
          */
+        @JvmStatic
         fun make(view: View,
                  text: CharSequence,
                  duration: Int = Snackbar.LENGTH_SHORT,
@@ -399,6 +411,7 @@ class Light {
          *
          * @return The customized Snackbar that will be displayed.
          */
+        @JvmStatic
         fun make(view: View,
                  @StringRes textRes: Int,
                  duration: Int,
@@ -432,6 +445,7 @@ class Light {
          *
          * @return The customized Snackbar that will be displayed.
          */
+        @JvmStatic
         fun make(view: View,
                  @StringRes textRes: Int,
                  duration: Int,
@@ -469,6 +483,7 @@ class Light {
          *
          * @return The customized Snackbar that will be displayed.
          */
+        @JvmStatic
         fun make(view: View,
                  text: CharSequence,
                  duration: Int,
@@ -504,6 +519,7 @@ class Light {
          *
          * @return The customized Snackbar that will be displayed.
          */
+        @JvmStatic
         fun make(view: View,
                  text: CharSequence,
                  duration: Int,

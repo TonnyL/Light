@@ -22,7 +22,7 @@ The usual Snackbar, but elegant. Inspired by [Toasty](https://github.com/Grender
 
 ### Gradle
 
-Add the code below to your **root** `build.gradle` file (`NOT` your module `build.gradle` file, check [here](./build.gradle/) for example).
+Add the code below to your **root** `build.gradle` file (`NOT` your module `build.gradle` file, check [here](./build.gradle) for an example).
 
 ```groovy
 allprojects {
@@ -37,7 +37,7 @@ Add the code below to your **module**'s `build.gradle` file:
 ```groovy
 dependencies {
 	// Other dependencies here.
-	implemention 'io.github.tonnyl:light:1.0.0'
+	implemention 'io.github.tonnyl:light:1.1.0'
 }
 ```
 
@@ -47,7 +47,7 @@ dependencies {
 <dependency>
   <groupId>io.github.tonnyl</groupId>
   <artifactId>light</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -61,18 +61,18 @@ Each method always returns a `Snackbar` object, so you can customize the Snackba
 ```Kotlin
 // Kotlin
 Light.success(fab, "Success", Snackbar.LENGTH_SHORT)
-				.setAction("Action", {
-						Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
-				})
-				.show()
+	.setAction("Action", {
+		Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
+	})
+	.show()
 ```
 
 ```Java
 // Java
 Light.Companion.success(fab, "Success", Snackbar.LENGTH_SHORT)
-				.setAction("Action", v ->
-								Toast.makeText(SettingsActivity.this, "Hello, Light!", Toast.LENGTH_SHORT).show())
-				.show());
+	.setAction("Action", v ->
+		Toast.makeText(SettingsActivity.this, "Hello, Light!", Toast.LENGTH_SHORT).show())
+	.show());
 ```
 
 + To display an info Snackbar:
@@ -127,40 +127,40 @@ Light.Companion.normal(fab, "Normal", Snackbar.LENGTH_SHORT).show();
 ```Kotlin
 // Kotlin
 Light.make(
-				fab, // // The view to find a parent from.
-				"Awesome Snackbar", // The message to show.
-				Snackbar.LENGTH_INDEFINITE, // How long to display the message.
-				R.drawable.ic_album_white_24dp, // The left icon of message to show.
-				R.color.color_cyan, // The background color of Snackbar.
-				android.R.color.white, // The color of text to show.
-				R.drawable.ic_done_all_white_24dp,
-				R.color.colorAccent) // The left icon of action text.
-				.setAction("Done all", {
-						// Do whatever you want to do.
-						Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
-				})
-				.show()
+	fab, // // The view to find a parent from.
+	"Awesome Snackbar", // The message to show.
+	Snackbar.LENGTH_INDEFINITE, // How long to display the message.
+	R.drawable.ic_album_white_24dp, // The left icon of message to show.
+	R.color.color_cyan, // The background color of Snackbar.
+	android.R.color.white, // The color of text to show.
+	R.drawable.ic_done_all_white_24dp,
+	R.color.colorAccent) // The left icon of action text.
+	.setAction("Done all", {
+		// Do whatever you want to do.
+		Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
+	})
+	.show()
 ```
 
 ```Java
 // Java
 Light.Companion.make(
-				fab,
-				"Awesome Snackbar",
-				Snackbar.LENGTH_SHORT,
-				R.drawable.ic_album_white_24dp,
-				R.color.color_cyan,
-				android.R.color.white,
-				R.drawable.ic_done_all_white_24dp,
-				R.color.colorAccent)
-				.setAction("Done all", v ->
-								Toast.makeText(SettingsActivity.this, "Hello, Light!", Toast.LENGTH_SHORT).show())
-				.show());
+	fab,
+	"Awesome Snackbar",
+	Snackbar.LENGTH_SHORT,
+	R.drawable.ic_album_white_24dp,
+	R.color.color_cyan,
+	android.R.color.white,
+	R.drawable.ic_done_all_white_24dp,
+	R.color.colorAccent)
+	.setAction("Done all", v ->
+		Toast.makeText(SettingsActivity.this, "Hello, Light!", Toast.LENGTH_SHORT).show())
+	.show());
 ```
 
 ## Extra
 
-[You can pass formatted text to Light!](./app/src/main/java/io/github/tonnyl/sample/MainActivity.kt)
+[You can pass formatted text to Light!](./app/src/main/java/io/github/tonnyl/sample/MainActivity.kt#L70-L79)
 
 ## Pull Request
 
@@ -168,4 +168,4 @@ Have some new ideas or find a bug? Do not hesitate to open an `issue` and make a
 
 ## License
 
-Light is under an `MIT` license. See the [LICENSE](LICENSE) file for more info.
+**Light** is under an **MIT** license. See the [LICENSE](LICENSE) file for more info.
