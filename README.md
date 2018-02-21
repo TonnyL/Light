@@ -37,7 +37,7 @@ Add the code below to your **module**'s `build.gradle` file:
 ```groovy
 dependencies {
 	// Other dependencies here.
-	implemention 'io.github.tonnyl:light:1.1.0'
+	implementation 'io.github.tonnyl:light:1.1.0'
 }
 ```
 
