@@ -56,19 +56,19 @@ public class SettingsActivity extends AppCompatActivity {
         final FloatingActionButton fab = findViewById(R.id.fab);
 
         findViewById(R.id.button_success).setOnClickListener(v1 ->
-                Light.Companion.success(fab, "Success", Snackbar.LENGTH_SHORT)
+                Light.success(fab, "Success", Snackbar.LENGTH_SHORT)
                         .setAction("Action", v2 ->
                                 Toast.makeText(SettingsActivity.this, "Hello, Light!", Toast.LENGTH_SHORT).show())
                         .show());
 
         findViewById(R.id.button_info).setOnClickListener(v ->
-                Light.Companion.info(fab, "Info", Snackbar.LENGTH_SHORT).show());
+                Light.info(fab, "Info", Snackbar.LENGTH_SHORT).show());
 
         findViewById(R.id.button_warning).setOnClickListener(v ->
-                Light.Companion.warning(fab, "Warning", Snackbar.LENGTH_SHORT).show());
+                Light.warning(fab, "Warning", Snackbar.LENGTH_SHORT).show());
 
         findViewById(R.id.button_error).setOnClickListener(v ->
-                Light.Companion.error(fab, "Error", Snackbar.LENGTH_SHORT).show());
+                Light.error(fab, "Error", Snackbar.LENGTH_SHORT).show());
 
         findViewById(R.id.button_normal).setOnClickListener(v -> {
             String prefix = "Formatted ";
@@ -78,11 +78,11 @@ public class SettingsActivity extends AppCompatActivity {
             int prefixLen = prefix.length();
             ssb.setSpan(new StyleSpan(BOLD_ITALIC),
                     prefixLen, prefixLen + highlight.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            Light.Companion.normal(fab, ssb.toString(), Snackbar.LENGTH_SHORT).show();
+            Light.normal(fab, ssb.toString(), Snackbar.LENGTH_SHORT).show();
         });
 
         findViewById(R.id.button_custom).setOnClickListener(v1 ->
-                Light.Companion.make(
+                Light.make(
                         fab,
                         "Awesome Snackbar",
                         Snackbar.LENGTH_SHORT,

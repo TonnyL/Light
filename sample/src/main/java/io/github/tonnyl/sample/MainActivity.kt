@@ -35,7 +35,7 @@ import android.text.style.StyleSpan
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import io.github.tonnyl.light.Light
+import io.github.tonnyl.light.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         button_success.setOnClickListener {
-            Light.success(fab, "Success", Snackbar.LENGTH_SHORT)
+            success(fab, "Success", Snackbar.LENGTH_SHORT)
                     .setAction("Action", {
                         Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
                     })
@@ -55,15 +55,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         button_info.setOnClickListener {
-            Light.info(fab, "Info", Snackbar.LENGTH_SHORT).show()
+            info(fab, "Info", Snackbar.LENGTH_SHORT).show()
         }
 
         button_warning.setOnClickListener {
-            Light.warning(fab, "Warning", Snackbar.LENGTH_SHORT).show()
+            warning(fab, "Warning", Snackbar.LENGTH_SHORT).show()
         }
 
         button_error.setOnClickListener {
-            Light.error(fab, "Error", Snackbar.LENGTH_SHORT).show()
+            error(fab, "Error", Snackbar.LENGTH_SHORT).show()
         }
 
         button_normal.setOnClickListener {
@@ -76,11 +76,11 @@ class MainActivity : AppCompatActivity() {
                     .apply {
                         setSpan(StyleSpan(BOLD_ITALIC), prefix.length, prefix.length + highlight.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                     }
-            Light.normal(fab, ssb.toString(), Snackbar.LENGTH_SHORT).show()
+            normal(fab, ssb.toString(), Snackbar.LENGTH_SHORT).show()
         }
 
         button_custom.setOnClickListener {
-            Light.make(
+            make(
                     fab,
                     "Awesome Snackbar",
                     Snackbar.LENGTH_INDEFINITE,

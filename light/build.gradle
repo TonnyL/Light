@@ -13,26 +13,16 @@ android {
         minSdkVersion configuration.minSdkVersion
         targetSdkVersion configuration.targetSdkVersion
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     lintOptions {
         abortOnError false
     }
 }
 
 dependencies {
-
-    // Forced using a specific version of Kotlin
-    configurations.all {
-        resolutionStrategy {
-            force "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-        }
-    }
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:design:${libraries.supportLibraryVersion}"
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()
@@ -53,7 +43,7 @@ publish {
     userOrg = 'tonnyl'
     groupId = 'io.github.tonnyl'
     artifactId = 'light'
-    publishVersion = '1.1.0'
+    publishVersion = '1.1.1'
     desc = 'The usual Snackbar, but elegant.'
     website = 'https://tonnyl.github.io'
 }

@@ -24,7 +24,7 @@ The usual Snackbar, but elegant. Inspired by [Toasty](https://github.com/Grender
 
 Add the code below to your **root** `build.gradle` file (`NOT` your module `build.gradle` file, check [here](./build.gradle) for an example).
 
-```groovy
+```gradle
 allprojects {
     repositories {
         jcenter()
@@ -34,10 +34,9 @@ allprojects {
 
 Add the code below to your **module**'s `build.gradle` file:
 
-```groovy
+```gradle
 dependencies {
-	// Other dependencies here.
-	implementation 'io.github.tonnyl:light:1.1.0'
+	implementation 'io.github.tonnyl:light:latest_version'
 }
 ```
 
@@ -47,7 +46,7 @@ dependencies {
 <dependency>
   <groupId>io.github.tonnyl</groupId>
   <artifactId>light</artifactId>
-  <version>1.1.0</version>
+  <version>latest_version</version>
   <type>pom</type>
 </dependency>
 ```
@@ -60,7 +59,9 @@ Each method always returns a `Snackbar` object, so you can customize the Snackba
 
 ```Kotlin
 // Kotlin
-Light.success(fab, "Success", Snackbar.LENGTH_SHORT)
+import io.github.tonnyl.light.success
+
+success(fab, "Success", Snackbar.LENGTH_SHORT)
 	.setAction("Action", {
 		Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
 	})
@@ -69,7 +70,7 @@ Light.success(fab, "Success", Snackbar.LENGTH_SHORT)
 
 ```Java
 // Java
-Light.Companion.success(fab, "Success", Snackbar.LENGTH_SHORT)
+Light.success(fab, "Success", Snackbar.LENGTH_SHORT)
 	.setAction("Action", v ->
 		Toast.makeText(SettingsActivity.this, "Hello, Light!", Toast.LENGTH_SHORT).show())
 	.show());
@@ -79,54 +80,65 @@ Light.Companion.success(fab, "Success", Snackbar.LENGTH_SHORT)
 
 ```Kotlin
 // Kotlin
-Light.info(fab, "Info", Snackbar.LENGTH_SHORT).show()
+import io.github.tonnyl.light.info
+
+info(fab, "Info", Snackbar.LENGTH_SHORT).show()
 ```
 
 ```Java
 // Java
-Light.Companion.info(fab, "Info", Snackbar.LENGTH_SHORT).show());
+Light.info(fab, "Info", Snackbar.LENGTH_SHORT).show());
 ```
 
 + To display a warning Snackbar:
 
 ```Kotlin
 // Kotlin
-Light.warning(fab, "Warning", Snackbar.LENGTH_SHORT).show()
+import io.github.tonnyl.light.warning
+
+warning(fab, "Warning", Snackbar.LENGTH_SHORT).show()
 ```
 
 ```Java
 // Java
-Light.Companion.warning(fab, "Warning", Snackbar.LENGTH_SHORT).show());
+Light.warning(fab, "Warning", Snackbar.LENGTH_SHORT).show());
 ```
 
 + To display an error Snackbar:
 
 ```Kotlin
 // Kotlin
-Light.error(fab, "Error", Snackbar.LENGTH_SHORT).show()
+import io.github.tonnyl.light.error
+
+error(fab, "Error", Snackbar.LENGTH_SHORT).show()
 ```
 
 ```Java
 // Java
-Light.Companion.error(fab, "Error", Snackbar.LENGTH_SHORT).show());
+Light.error(fab, "Error", Snackbar.LENGTH_SHORT).show());
 ```
 
 + To display the usual Snackbar:
 
 ```Kotlin
 // Kotlin
-Light.normal(fab, "Normal", Snackbar.LENGTH_SHORT).show()
+import io.github.tonnyl.light.normal
+
+normal(fab, "Normal", Snackbar.LENGTH_SHORT).show()
 ```
 
 ```Java
-Light.Companion.normal(fab, "Normal", Snackbar.LENGTH_SHORT).show();
+// Java
+Light.normal(fab, "Normal", Snackbar.LENGTH_SHORT).show();
 ```
 
 + You can also create your own Snackbar in custom-designed style:
 
 ```Kotlin
 // Kotlin
-Light.make(
+import io.github.tonnyl.light.make
+
+make(
 	fab, // // The view to find a parent from.
 	"Awesome Snackbar", // The message to show.
 	Snackbar.LENGTH_INDEFINITE, // How long to display the message.
@@ -144,7 +156,7 @@ Light.make(
 
 ```Java
 // Java
-Light.Companion.make(
+Light.make(
 	fab,
 	"Awesome Snackbar",
 	Snackbar.LENGTH_SHORT,

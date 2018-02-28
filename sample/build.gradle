@@ -41,12 +41,13 @@ dependencies {
     implementation "com.android.support:appcompat-v7:${libraries.supportLibraryVersion}"
     implementation "com.android.support:design:${libraries.supportLibraryVersion}"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${libraries.espressoVersion}"
     androidTestImplementation "com.android.support.test:runner:${libraries.supportTestLibVersion}"
     androidTestImplementation "com.android.support.test:rules:${libraries.supportTestLibVersion}"
     androidTestImplementation "com.android.support:support-annotations:${libraries.supportLibraryVersion}"
+
     testImplementation "junit:junit:${libraries.junitVersion}"
 }
 

@@ -1,1 +1,1 @@
-include ':app', ':light'
+include ':sample', ':light'

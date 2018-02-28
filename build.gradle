@@ -1,22 +1,13 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
-    ext.kotlin_version = '1.1.51'
+    ext.kotlin_version = '1.2.21'
     repositories {
         jcenter()
         google()
     }
     dependencies {
-        configurations.all {
-            resolutionStrategy {
-                force "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-            }
-        }
-        classpath 'com.android.tools.build:gradle:3.0.0-beta6'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.novoda:bintray-release:0.5.0'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.novoda:bintray-release:0.8.0'
     }
 }
 
@@ -37,18 +28,16 @@ tasks.withType(Javadoc) {
 
 ext {
     configuration = [
-            // Sdk and tools
-            compileSdkVersion: 26,
-            targetSdkVersion : 26,
+            compileSdkVersion: 27,
+            targetSdkVersion : 27,
             minSdkVersion    : 14,
-            buildToolsVersion: '26.0.1'
+            buildToolsVersion: '27.0.3'
     ]
 
     libraries = [
-            // App dependencies
-            supportLibraryVersion: '26.1.0',
+            supportLibraryVersion: '27.1.0',
             junitVersion         : '4.12',
             supportTestLibVersion: '0.5',
-            espressoVersion      : '2.2.2'
+            espressoVersion      : '3.0.1'
     ]
 }
