@@ -27,4 +27,8 @@
 <resources>
     <string name="app_name">Light</string>
     <string name="action_settings">Settings</string>
+    <string name="success">success</string>
+    <string name="info">info</string>
+    <string name="warning">warning</string>
+    <string name="error">error</string>
 </resources>

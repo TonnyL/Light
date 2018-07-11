@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         button_success.setOnClickListener {
-            success(fab, "Success", Snackbar.LENGTH_SHORT)
+            success(fab, R.string.success, Snackbar.LENGTH_SHORT)
                     .setAction("Action", {
                         Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
                     })
@@ -55,15 +55,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         button_info.setOnClickListener {
-            info(fab, "Info", Snackbar.LENGTH_SHORT).show()
+            info(fab, R.string.info, Snackbar.LENGTH_SHORT).show()
         }
 
         button_warning.setOnClickListener {
-            warning(fab, "Warning", Snackbar.LENGTH_SHORT).show()
+            warning(fab, R.string.warning, Snackbar.LENGTH_SHORT).show()
         }
 
         button_error.setOnClickListener {
-            error(fab, "Error", Snackbar.LENGTH_SHORT).show()
+            error(fab, R.string.error, Snackbar.LENGTH_SHORT).show()
         }
 
         button_normal.setOnClickListener {

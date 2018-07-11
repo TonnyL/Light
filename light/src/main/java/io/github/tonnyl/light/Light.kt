@@ -72,8 +72,7 @@ fun success(view: View,
         duration,
         ContextCompat.getDrawable(view.context, R.drawable.ic_success_white_24dp),
         // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_success),
-        ContextCompat.getColor(view.context, android.R.color.white))
+        backgroundColorInt= ContextCompat.getColor(view.context, R.color.color_success))
 
 
 /**
@@ -90,16 +89,7 @@ fun success(view: View,
 fun success(view: View,
             @StringRes textId: Int,
             duration: Int = Snackbar.LENGTH_SHORT
-): Snackbar = make(
-        view,
-        view.context.getString(textId),
-        // DO NOT use the resource id directly.
-        // It should be a resolved drawable or color.
-        duration,
-        ContextCompat.getDrawable(view.context, R.drawable.ic_success_white_24dp),
-        // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_success),
-        ContextCompat.getColor(view.context, android.R.color.white))
+): Snackbar = success(view,view.context.getString(textId),duration)
 
 /**
  * Make a Snackbar to display an error message.
@@ -122,8 +112,7 @@ fun error(view: View,
         // It should be a resolved drawable or color.
         ContextCompat.getDrawable(view.context, R.drawable.ic_error_24dp),
         // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_error),
-        ContextCompat.getColor(view.context, android.R.color.white))
+        backgroundColorInt= ContextCompat.getColor(view.context, R.color.color_error))
 
 /**
  * Make a Snackbar to display an error message.
@@ -139,15 +128,7 @@ fun error(view: View,
 fun error(view: View,
           @StringRes textId: Int,
           duration: Int = Snackbar.LENGTH_SHORT
-): Snackbar = make(view,
-        view.context.getText(textId),
-        duration,
-        // DO NOT use the resource id directly.
-        // It should be a resolved drawable or color.
-        ContextCompat.getDrawable(view.context, R.drawable.ic_error_24dp),
-        // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_error),
-        ContextCompat.getColor(view.context, android.R.color.white))
+): Snackbar = error(view,view.context.getText(textId),duration)
 
 /**
  * Make a Snackbar to display an info message.
@@ -171,8 +152,7 @@ fun info(view: View,
         // It should be a resolved drawable or color.
         ContextCompat.getDrawable(view.context, R.drawable.ic_info_outline_white_24dp),
         // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_info),
-        ContextCompat.getColor(view.context, android.R.color.white))
+        backgroundColorInt= ContextCompat.getColor(view.context, R.color.color_info))
 
 /**
  * Make a Snackbar to display an info message.
@@ -188,16 +168,7 @@ fun info(view: View,
 fun info(view: View,
          @StringRes textId: Int,
          duration: Int = Snackbar.LENGTH_SHORT
-): Snackbar = make(
-        view,
-        view.context.getString(textId),
-        duration,
-        // DO NOT use the resource id directly.
-        // It should be a resolved drawable or color.
-        ContextCompat.getDrawable(view.context, R.drawable.ic_info_outline_white_24dp),
-        // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_info),
-        ContextCompat.getColor(view.context, android.R.color.white))
+): Snackbar = info(view,view.context.getText(textId),duration)
 
 /**
  * Make a Snackbar to display a warning message.
@@ -221,8 +192,7 @@ fun warning(view: View,
         // It should be a resolved drawable or color.
         ContextCompat.getDrawable(view.context, R.drawable.ic_warning_outline_white_24dp),
         // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_warning),
-        ContextCompat.getColor(view.context, android.R.color.white))
+        backgroundColorInt= ContextCompat.getColor(view.context, R.color.color_warning))
 
 /**
  * Make a Snackbar to display a warning message.
@@ -238,16 +208,7 @@ fun warning(view: View,
 fun warning(view: View,
             @StringRes textId: Int,
             duration: Int = Snackbar.LENGTH_SHORT
-): Snackbar = make(
-        view,
-        view.context.getString(textId),
-        duration,
-        // DO NOT use the resource id directly.
-        // It should be a resolved drawable or color.
-        ContextCompat.getDrawable(view.context, R.drawable.ic_warning_outline_white_24dp),
-        // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_warning),
-        ContextCompat.getColor(view.context, android.R.color.white))
+): Snackbar = warning(view,view.context.getText(textId),duration)
 
 /**
  * Make a Snackbar to display a normal message.
@@ -271,8 +232,7 @@ fun normal(view: View,
         // It should be a resolved drawable or color.
         ContextCompat.getDrawable(view.context, R.drawable.ic_warning_outline_white_24dp),
         // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_warning),
-        ContextCompat.getColor(view.context, android.R.color.white))
+        backgroundColorInt=  ContextCompat.getColor(view.context, R.color.color_warning))
 
 /**
  * Make a Snackbar to display a normal message.
@@ -288,16 +248,129 @@ fun normal(view: View,
 fun normal(view: View,
            @StringRes textId: Int,
            duration: Int = Snackbar.LENGTH_SHORT
+): Snackbar = normal(view,view.context.getText(textId),duration)
+
+/**
+ * Make a customized [Snackbar] to display a message without any action.
+ * Method [Light.make] is called internal.
+ *
+ * @param view The view to find a parent from.
+ * @param textRes The message to display. Formatted text is supported.
+ * String resource id ([StringRes]) is required.
+ * @param duration How long to show the message. Either [Snackbar.LENGTH_SHORT] or [Snackbar.LENGTH_LONG].
+ * Default length is [Snackbar.LENGTH_SHORT].
+ * @param textIconRes The left icon of the message. Drawable resource id ([DrawableRes]) is required.
+ * @param backgroundColorRes The background color of the Snackbar. Color resource id ([ColorRes]) is required.
+ * @param textColorRes The color of action message text. Color resource id ([ColorRes]) is required.
+ *
+ * @return The customized Snackbar that will be displayed.
+ */
+fun make(view: View,
+         @StringRes textRes: Int,
+         duration: Int,
+         @DrawableRes textIconRes: Int,
+         @ColorRes backgroundColorRes: Int,
+         @ColorRes textColorRes: Int
+): Snackbar = make(
+        view, view.context.getString(textRes),
+        duration,textIconRes,backgroundColorRes,textColorRes)
+
+/**
+ * Make a customized [Snackbar] to display a message without any action.
+ * Method [Light.make] is called internal.
+ *
+ * @param view The view to find a parent from.
+ * @param textRes The message to display. String resource id ([StringRes]) is required.
+ * @param textIconRes The left icon of the message. Drawable resource id ([DrawableRes]) is required.
+ * @param backgroundColorRes The background color of the Snackbar. Color resource id ([ColorRes]) is required.
+ * @param textColorRes The color of action message text. Color resource id ([ColorRes]) is required.
+ * @param duration How long to show the message. Either [Snackbar.LENGTH_SHORT] or [Snackbar.LENGTH_LONG].
+ * Default length is [Snackbar.LENGTH_SHORT].
+ * @param actionIconRes The left icon of action message text. Drawable resource id ([DrawableRes]) is required.
+ * @param actionTextColorRes The color of action message text. Color resource id ([ColorRes]) is required.
+ *
+ * @return The customized Snackbar that will be displayed.
+ */
+fun make(view: View,
+         @StringRes textRes: Int,
+         duration: Int,
+         @DrawableRes textIconRes: Int,
+         @ColorRes backgroundColorRes: Int,
+         @ColorRes textColorRes: Int,
+         @DrawableRes actionIconRes: Int,
+         @ColorRes actionTextColorRes: Int
+): Snackbar = make(
+        view, view.context.getString(textRes),
+        duration,textIconRes,backgroundColorRes,textColorRes,actionIconRes,actionTextColorRes)
+
+/**
+ * Make a customized [Snackbar] to display a message without any action.
+ * Method [Light.make] is called internal.
+ *
+ * @param view The view to find a parent from.
+ * @param text The message to display. Formatted text is required.
+ * @param textIconRes The left icon of the message. Drawable resource id ([DrawableRes]) is required.
+ * @param backgroundColorRes The background color of the Snackbar. Color resource id ([ColorRes]) is required.
+ * @param textColorRes The color of action message text. Color resource id ([ColorRes]) is required.
+ * @param duration How long to show the message. Either [Snackbar.LENGTH_SHORT] or [Snackbar.LENGTH_LONG].
+ * Default length is [Snackbar.LENGTH_SHORT].
+ * @param actionIconRes The left icon of action message text. Drawable resource id ([DrawableRes]) is required.
+ * @param actionTextColorRes The color of action message text. Color resource id ([ColorRes]) is required.
+ *
+ * @return The customized Snackbar that will be displayed.
+ */
+fun make(view: View,
+         text: CharSequence,
+         duration: Int,
+         @DrawableRes textIconRes: Int,
+         @ColorRes backgroundColorRes: Int,
+         @ColorRes textColorRes: Int,
+         @DrawableRes actionIconRes: Int,
+         @ColorRes actionTextColorRes: Int
 ): Snackbar = make(
         view,
-        view.context.getString(textId),
+        text,
         duration,
         // DO NOT use the resource id directly.
         // It should be a resolved drawable or color.
-        ContextCompat.getDrawable(view.context, R.drawable.ic_warning_outline_white_24dp),
+        ContextCompat.getDrawable(view.context, textIconRes),
         // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, R.color.color_warning),
-        ContextCompat.getColor(view.context, android.R.color.white))
+        ContextCompat.getColor(view.context, backgroundColorRes),
+        ContextCompat.getColor(view.context, textColorRes),
+        ContextCompat.getDrawable(view.context, actionIconRes),
+        ContextCompat.getColor(view.context, actionTextColorRes))
+
+/**
+ * Make a customized [Snackbar] to display a message without any action.
+ * Method [Light.make] is called internal.
+ *
+ * @param view The view to find a parent from.
+ * @param text The message to display. Formatted text is supported.
+ * @param duration How long to show the message. Either [Snackbar.LENGTH_SHORT] or [Snackbar.LENGTH_LONG].
+ * Default length is [Snackbar.LENGTH_SHORT].
+ * @param textIconRes The left icon of the message. Drawable resource id ([DrawableRes]) is required.
+ * @param backgroundColorRes The background color of the Snackbar. Color resource id ([ColorRes]) is required.
+ * @param textColorRes The color of action message text. Color resource id ([ColorRes]) is required.
+ *
+ * @return The customized Snackbar that will be displayed.
+ */
+fun make(view: View,
+         text: CharSequence,
+         duration: Int,
+         @DrawableRes textIconRes: Int,
+         @ColorRes backgroundColorRes: Int,
+         @ColorRes textColorRes: Int
+): Snackbar = make(
+        view,
+        text,
+        // DO NOT use the resource id directly.
+        // It should be a resolved drawable or color.
+        duration,
+        ContextCompat.getDrawable(view.context, textIconRes),
+        // getResources().getColor() is deprecated.
+        ContextCompat.getColor(view.context, backgroundColorRes),
+        ContextCompat.getColor(view.context, textColorRes))
+
 
 /**
  * Make a customized [Snackbar] to display a message without any action.
@@ -379,140 +452,3 @@ fun make(view: View,
             this
         }
 
-
-/**
- * Make a customized [Snackbar] to display a message without any action.
- * Method [Light.make] is called internal.
- *
- * @param view The view to find a parent from.
- * @param textRes The message to display. Formatted text is supported.
- * String resource id ([StringRes]) is required.
- * @param duration How long to show the message. Either [Snackbar.LENGTH_SHORT] or [Snackbar.LENGTH_LONG].
- * Default length is [Snackbar.LENGTH_SHORT].
- * @param textIconRes The left icon of the message. Drawable resource id ([DrawableRes]) is required.
- * @param backgroundColorRes The background color of the Snackbar. Color resource id ([ColorRes]) is required.
- * @param textColorRes The color of action message text. Color resource id ([ColorRes]) is required.
- *
- * @return The customized Snackbar that will be displayed.
- */
-fun make(view: View,
-         @StringRes textRes: Int,
-         duration: Int,
-         @DrawableRes textIconRes: Int,
-         @ColorRes backgroundColorRes: Int,
-         @ColorRes textColorRes: Int
-): Snackbar = make(
-        view,
-        view.context.getString(textRes),
-        duration,
-        // DO NOT use the resource id directly.
-        // It should be a resolved drawable or color.
-        ContextCompat.getDrawable(view.context, textIconRes),
-        // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, backgroundColorRes),
-        ContextCompat.getColor(view.context, textColorRes))
-
-/**
- * Make a customized [Snackbar] to display a message without any action.
- * Method [Light.make] is called internal.
- *
- * @param view The view to find a parent from.
- * @param textRes The message to display. String resource id ([StringRes]) is required.
- * @param textIconRes The left icon of the message. Drawable resource id ([DrawableRes]) is required.
- * @param backgroundColorRes The background color of the Snackbar. Color resource id ([ColorRes]) is required.
- * @param textColorRes The color of action message text. Color resource id ([ColorRes]) is required.
- * @param duration How long to show the message. Either [Snackbar.LENGTH_SHORT] or [Snackbar.LENGTH_LONG].
- * Default length is [Snackbar.LENGTH_SHORT].
- * @param actionIconRes The left icon of action message text. Drawable resource id ([DrawableRes]) is required.
- * @param actionTextColorRes The color of action message text. Color resource id ([ColorRes]) is required.
- *
- * @return The customized Snackbar that will be displayed.
- */
-fun make(view: View,
-         @StringRes textRes: Int,
-         duration: Int,
-         @DrawableRes textIconRes: Int,
-         @ColorRes backgroundColorRes: Int,
-         @ColorRes textColorRes: Int,
-         @DrawableRes actionIconRes: Int,
-         @ColorRes actionTextColorRes: Int
-): Snackbar = make(
-        view,
-        view.context.getString(textRes),
-        duration,
-        // DO NOT use the resource id directly.
-        // It should be a resolved drawable or color.
-        ContextCompat.getDrawable(view.context, textIconRes),
-        // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, backgroundColorRes),
-        ContextCompat.getColor(view.context, textColorRes),
-        ContextCompat.getDrawable(view.context, actionIconRes),
-        ContextCompat.getColor(view.context, actionTextColorRes))
-
-/**
- * Make a customized [Snackbar] to display a message without any action.
- * Method [Light.make] is called internal.
- *
- * @param view The view to find a parent from.
- * @param text The message to display. Formatted text is required.
- * @param textIconRes The left icon of the message. Drawable resource id ([DrawableRes]) is required.
- * @param backgroundColorRes The background color of the Snackbar. Color resource id ([ColorRes]) is required.
- * @param textColorRes The color of action message text. Color resource id ([ColorRes]) is required.
- * @param duration How long to show the message. Either [Snackbar.LENGTH_SHORT] or [Snackbar.LENGTH_LONG].
- * Default length is [Snackbar.LENGTH_SHORT].
- * @param actionIconRes The left icon of action message text. Drawable resource id ([DrawableRes]) is required.
- * @param actionTextColorRes The color of action message text. Color resource id ([ColorRes]) is required.
- *
- * @return The customized Snackbar that will be displayed.
- */
-fun make(view: View,
-         text: CharSequence,
-         duration: Int,
-         @DrawableRes textIconRes: Int,
-         @ColorRes backgroundColorRes: Int,
-         @ColorRes textColorRes: Int,
-         @DrawableRes actionIconRes: Int,
-         @ColorRes actionTextColorRes: Int
-): Snackbar = make(
-        view,
-        text,
-        duration,
-        // DO NOT use the resource id directly.
-        // It should be a resolved drawable or color.
-        ContextCompat.getDrawable(view.context, textIconRes),
-        // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, backgroundColorRes),
-        ContextCompat.getColor(view.context, textColorRes),
-        ContextCompat.getDrawable(view.context, actionIconRes),
-        ContextCompat.getColor(view.context, actionTextColorRes))
-
-/**
- * Make a customized [Snackbar] to display a message without any action.
- * Method [Light.make] is called internal.
- *
- * @param view The view to find a parent from.
- * @param text The message to display. Formatted text is supported.
- * @param duration How long to show the message. Either [Snackbar.LENGTH_SHORT] or [Snackbar.LENGTH_LONG].
- * Default length is [Snackbar.LENGTH_SHORT].
- * @param textIconRes The left icon of the message. Drawable resource id ([DrawableRes]) is required.
- * @param backgroundColorRes The background color of the Snackbar. Color resource id ([ColorRes]) is required.
- * @param textColorRes The color of action message text. Color resource id ([ColorRes]) is required.
- *
- * @return The customized Snackbar that will be displayed.
- */
-fun make(view: View,
-         text: CharSequence,
-         duration: Int,
-         @DrawableRes textIconRes: Int,
-         @ColorRes backgroundColorRes: Int,
-         @ColorRes textColorRes: Int
-): Snackbar = make(
-        view,
-        text,
-        // DO NOT use the resource id directly.
-        // It should be a resolved drawable or color.
-        duration,
-        ContextCompat.getDrawable(view.context, textIconRes),
-        // getResources().getColor() is deprecated.
-        ContextCompat.getColor(view.context, backgroundColorRes),
-        ContextCompat.getColor(view.context, textColorRes))
