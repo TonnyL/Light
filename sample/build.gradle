@@ -37,6 +37,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation project(':light')
+//    implementation 'io.github.tonnyl:light:1.1.1'
 
     implementation "com.android.support:appcompat-v7:${libraries.supportLibraryVersion}"
     implementation "com.android.support:design:${libraries.supportLibraryVersion}"
