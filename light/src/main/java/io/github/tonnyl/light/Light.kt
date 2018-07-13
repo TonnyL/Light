@@ -32,6 +32,7 @@ import android.support.v4.content.ContextCompat
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.TextView
 
 /**
@@ -49,10 +50,10 @@ import android.widget.TextView
  */
 
 /** set the Snackbar in the top location */
-const val TOP = 10011
+const val TOP = Gravity.TOP
 
 /** set the Snackbar in the bottom location */
-const val BOTTOM = 10012
+const val BOTTOM = Gravity.BOTTOM
 
 @CheckResult
 fun success(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
@@ -68,9 +69,7 @@ fun success(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHOR
 
 @CheckResult
 fun success(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration,
-        ContextCompat.getDrawable(view.context, R.drawable.ic_success_white_24dp),
-        backgroundColorInt = ContextCompat.getColor(view.context, R.color.color_success), gravity = gravity)
+        Snackbar = make(view, text, duration, R.drawable.ic_success_white_24dp, R.color.color_success, gravity = gravity)
 
 @CheckResult
 fun error(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
@@ -86,9 +85,7 @@ fun error(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT)
 
 @CheckResult
 fun error(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration,
-        ContextCompat.getDrawable(view.context, R.drawable.ic_error_24dp),
-        backgroundColorInt = ContextCompat.getColor(view.context, R.color.color_error), gravity = gravity)
+        Snackbar = make(view, text, duration, R.drawable.ic_error_24dp, R.color.color_error, gravity = gravity)
 
 @CheckResult
 fun info(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
@@ -104,9 +101,7 @@ fun info(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT):
 
 @CheckResult
 fun info(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration,
-        ContextCompat.getDrawable(view.context, R.drawable.ic_info_outline_white_24dp),
-        backgroundColorInt = ContextCompat.getColor(view.context, R.color.color_info), gravity = gravity)
+        Snackbar = make(view, text, duration, R.drawable.ic_info_outline_white_24dp, R.color.color_info, gravity = gravity)
 
 @CheckResult
 fun warning(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
@@ -122,9 +117,7 @@ fun warning(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHOR
 
 @CheckResult
 fun warning(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration,
-        ContextCompat.getDrawable(view.context, R.drawable.ic_warning_outline_white_24dp),
-        backgroundColorInt = ContextCompat.getColor(view.context, R.color.color_warning), gravity = gravity)
+        Snackbar = make(view, text, duration, R.drawable.ic_warning_outline_white_24dp, R.color.color_warning, gravity = gravity)
 
 @CheckResult
 fun normal(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
@@ -262,6 +255,11 @@ fun make(view: View,
          @ColorInt textColorInt: Int = ContextCompat.getColor(view.context, android.R.color.white),
          gravity: Int = BOTTOM
 ): Snackbar = with(Snackbar.make(view, text, duration)) {
+    if (gravity == TOP) {
+        val params = FrameLayout.LayoutParams(this.view.layoutParams.width, this.view.layoutParams.height)
+        params.gravity =  Gravity.TOP
+        this.view.layoutParams = params
+    }
     this.view.apply {
         setBackgroundColor(backgroundColorInt)
     }
@@ -273,7 +271,8 @@ fun make(view: View,
                 compoundDrawablePadding = 16
                 // To make icon and message aligned.
                 this.gravity = Gravity.CENTER
-                // Change color of message text.
+                // Chan
+                // ge color of message text.
                 setTextColor(textColorInt)
             }
     this
@@ -307,6 +306,11 @@ fun make(view: View,
          @ColorInt actionTextColorInt: Int = ContextCompat.getColor(view.context, android.R.color.white),
          gravity: Int = BOTTOM
 ): Snackbar = with(make(view, text, duration, textIcon, backgroundColorInt, textColorInt)) {
+    if (gravity == TOP) {
+        val params = FrameLayout.LayoutParams(this.view.layoutParams.width, this.view.layoutParams.height)
+        params.gravity = Gravity.TOP
+        this.view.layoutParams = params
+    }
     // Get the button of action.
     this.view.findViewById<Button>(android.support.design.R.id.snackbar_action)
             .apply {
@@ -321,4 +325,5 @@ fun make(view: View,
             }
     this
 }
+
 

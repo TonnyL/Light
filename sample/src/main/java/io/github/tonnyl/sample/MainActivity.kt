@@ -36,6 +36,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import io.github.tonnyl.light.*
+import io.github.tonnyl.sample.R.id.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         button_success.setOnClickListener {
-            success(fab, R.string.success, Snackbar.LENGTH_SHORT)
+            success(fab, R.string.success, Snackbar.LENGTH_SHORT, TOP)
                     .setAction("Action", {
                         Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
                     })
@@ -83,12 +84,12 @@ class MainActivity : AppCompatActivity() {
             make(
                     fab,
                     "Awesome Snackbar",
-                    Snackbar.LENGTH_INDEFINITE,
+                    Snackbar.LENGTH_SHORT,
                     R.drawable.ic_album_white_24dp,
                     R.color.color_cyan,
                     android.R.color.white,
                     R.drawable.ic_done_all_white_24dp,
-                    R.color.colorAccent)
+                    R.color.colorAccent, TOP)
                     .setAction("Done all", {
                         Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
                     })
