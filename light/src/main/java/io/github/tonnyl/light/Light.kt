@@ -31,9 +31,6 @@ import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.TextView
 
 /**
  * Created by lizhaotailang on 2017/5/5.
@@ -57,83 +54,83 @@ const val BOTTOM = Gravity.BOTTOM
 
 @CheckResult
 fun success(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = success(view, textId, duration, BOTTOM)
+        TBSnackBar = success(view, textId, duration, BOTTOM)
 
 @CheckResult
 fun success(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = success(view, view.context.getString(textId), duration, gravity)
+        TBSnackBar = success(view, view.context.getString(textId), duration, gravity)
 
 @CheckResult
 fun success(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = success(view, text, duration, BOTTOM)
+        TBSnackBar = success(view, text, duration, BOTTOM)
 
 @CheckResult
 fun success(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration, R.drawable.ic_success_white_24dp, R.color.color_success, gravity = gravity)
+        TBSnackBar = make(view, text, duration, R.drawable.ic_success_white_24dp, R.color.color_success, gravity = gravity)
 
 @CheckResult
 fun error(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = error(view, textId, duration, BOTTOM)
+        TBSnackBar = error(view, textId, duration, BOTTOM)
 
 @CheckResult
 fun error(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = error(view, view.context.getText(textId), duration, gravity)
+        TBSnackBar = error(view, view.context.getText(textId), duration, gravity)
 
 @CheckResult
 fun error(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = error(view, text, duration, BOTTOM)
+        TBSnackBar = error(view, text, duration, BOTTOM)
 
 @CheckResult
 fun error(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration, R.drawable.ic_error_24dp, R.color.color_error, gravity = gravity)
+        TBSnackBar = make(view, text, duration, R.drawable.ic_error_24dp, R.color.color_error, gravity = gravity)
 
 @CheckResult
 fun info(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = info(view, textId, duration, BOTTOM)
+        TBSnackBar = info(view, textId, duration, BOTTOM)
 
 @CheckResult
 fun info(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = info(view, view.context.getText(textId), duration, gravity)
+        TBSnackBar = info(view, view.context.getText(textId), duration, gravity)
 
 @CheckResult
 fun info(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = info(view, text, duration, BOTTOM)
+        TBSnackBar = info(view, text, duration, BOTTOM)
 
 @CheckResult
 fun info(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration, R.drawable.ic_info_outline_white_24dp, R.color.color_info, gravity = gravity)
+        TBSnackBar = make(view, text, duration, R.drawable.ic_info_outline_white_24dp, R.color.color_info, gravity = gravity)
 
 @CheckResult
 fun warning(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = warning(view, textId, duration, BOTTOM)
+        TBSnackBar = warning(view, textId, duration, BOTTOM)
 
 @CheckResult
 fun warning(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = warning(view, view.context.getText(textId), duration, gravity)
+        TBSnackBar = warning(view, view.context.getText(textId), duration, gravity)
 
 @CheckResult
 fun warning(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = warning(view, text, duration, BOTTOM)
+        TBSnackBar = warning(view, text, duration, BOTTOM)
 
 @CheckResult
 fun warning(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration, R.drawable.ic_warning_outline_white_24dp, R.color.color_warning, gravity = gravity)
+        TBSnackBar = make(view, text, duration, R.drawable.ic_warning_outline_white_24dp, R.color.color_warning, gravity = gravity)
 
 @CheckResult
 fun normal(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = normal(view, textId, duration, BOTTOM)
+        TBSnackBar = normal(view, textId, duration, BOTTOM)
 
 @CheckResult
 fun normal(view: View, @StringRes textId: Int, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = normal(view, view.context.getText(textId), duration, gravity)
+        TBSnackBar = normal(view, view.context.getText(textId), duration, gravity)
 
 @CheckResult
 fun normal(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT):
-        Snackbar = normal(view, text, duration, BOTTOM)
+        TBSnackBar = normal(view, text, duration, BOTTOM)
 
 @CheckResult
 fun normal(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT, gravity: Int = BOTTOM):
-        Snackbar = make(view, text, duration, null,
+        TBSnackBar = make(view, text, duration, null,
         backgroundColorInt = ContextCompat.getColor(view.context, R.color.color_normal), gravity = gravity)
 
 @CheckResult
@@ -143,7 +140,7 @@ fun make(view: View,
          @DrawableRes textIconRes: Int,
          @ColorRes backgroundColorRes: Int = R.color.color_normal,
          @ColorRes textColorRes: Int = android.R.color.white
-): Snackbar = make(view, textRes, duration, textIconRes, backgroundColorRes, textColorRes, BOTTOM)
+): TBSnackBar = make(view, textRes, duration, textIconRes, backgroundColorRes, textColorRes, BOTTOM)
 
 @CheckResult
 fun make(view: View,
@@ -153,7 +150,7 @@ fun make(view: View,
          @ColorRes backgroundColorRes: Int = R.color.color_normal,
          @ColorRes textColorRes: Int = android.R.color.white,
          gravity: Int = BOTTOM
-): Snackbar = make(view, view.context.getString(textRes), duration,
+): TBSnackBar = make(view, view.context.getString(textRes), duration,
         textIconRes, backgroundColorRes, textColorRes, gravity)
 
 @CheckResult
@@ -163,7 +160,7 @@ fun make(view: View,
          @DrawableRes textIconRes: Int,
          @ColorRes backgroundColorRes: Int = R.color.color_normal,
          @ColorRes textColorRes: Int = android.R.color.white
-): Snackbar = make(view, text, duration, textIconRes, backgroundColorRes, textColorRes, BOTTOM)
+): TBSnackBar = make(view, text, duration, textIconRes, backgroundColorRes, textColorRes, BOTTOM)
 
 @CheckResult
 fun make(view: View,
@@ -173,7 +170,7 @@ fun make(view: View,
          @ColorRes backgroundColorRes: Int = R.color.color_normal,
          @ColorRes textColorRes: Int = android.R.color.white,
          gravity: Int = BOTTOM
-): Snackbar = make(view, text, duration,
+): TBSnackBar = make(view, text, duration,
         ContextCompat.getDrawable(view.context, textIconRes),
         ContextCompat.getColor(view.context, backgroundColorRes),
         ContextCompat.getColor(view.context, textColorRes), gravity)
@@ -187,7 +184,7 @@ fun make(view: View,
          @ColorRes textColorRes: Int = android.R.color.white,
          @DrawableRes actionIconRes: Int,
          @ColorRes actionTextColorRes: Int = android.R.color.white
-): Snackbar = make(view, textRes, duration, textIconRes,
+): TBSnackBar = make(view, textRes, duration, textIconRes,
         backgroundColorRes, textColorRes, actionIconRes, actionTextColorRes, BOTTOM)
 
 @CheckResult
@@ -200,7 +197,7 @@ fun make(view: View,
          @DrawableRes actionIconRes: Int,
          @ColorRes actionTextColorRes: Int = android.R.color.white,
          gravity: Int = BOTTOM
-): Snackbar = make(view, view.context.getString(textRes), duration, textIconRes,
+): TBSnackBar = make(view, view.context.getString(textRes), duration, textIconRes,
         backgroundColorRes, textColorRes, actionIconRes, actionTextColorRes, gravity)
 
 @CheckResult
@@ -212,7 +209,7 @@ fun make(view: View,
          @ColorRes textColorRes: Int = android.R.color.white,
          @DrawableRes actionIconRes: Int,
          @ColorRes actionTextColorRes: Int = android.R.color.white
-): Snackbar = make(view, text, duration, textIconRes, backgroundColorRes,
+): TBSnackBar = make(view, text, duration, textIconRes, backgroundColorRes,
         textColorRes, actionIconRes, actionTextColorRes, BOTTOM)
 
 @CheckResult
@@ -225,7 +222,7 @@ fun make(view: View,
          @DrawableRes actionIconRes: Int,
          @ColorRes actionTextColorRes: Int = android.R.color.white,
          gravity: Int = BOTTOM
-): Snackbar = make(view, text, duration,
+): TBSnackBar = make(view, text, duration,
         ContextCompat.getDrawable(view.context, textIconRes),
         ContextCompat.getColor(view.context, backgroundColorRes),
         ContextCompat.getColor(view.context, textColorRes),
@@ -254,29 +251,8 @@ fun make(view: View,
          @ColorInt backgroundColorInt: Int = ContextCompat.getColor(view.context, R.color.color_normal),
          @ColorInt textColorInt: Int = ContextCompat.getColor(view.context, android.R.color.white),
          gravity: Int = BOTTOM
-): Snackbar = with(Snackbar.make(view, text, duration)) {
-    if (gravity == TOP) {
-        val params = FrameLayout.LayoutParams(this.view.layoutParams.width, this.view.layoutParams.height)
-        params.gravity =  Gravity.TOP
-        this.view.layoutParams = params
-    }
-    this.view.apply {
-        setBackgroundColor(backgroundColorInt)
-    }
-    this.view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
-            .apply {
-                // Set the left icon of message.
-                setCompoundDrawablesWithIntrinsicBounds(textIcon, null, null, null)
-                // Set the padding between message and icon.
-                compoundDrawablePadding = 16
-                // To make icon and message aligned.
-                this.gravity = Gravity.CENTER
-                // Chan
-                // ge color of message text.
-                setTextColor(textColorInt)
-            }
-    this
-}
+): TBSnackBar = TBSnackBar().make(view, text, duration, textIcon,
+        backgroundColorInt, textColorInt, gravity)
 
 /**
  * Make a customized [Snackbar] to display a message without any action.
@@ -305,25 +281,6 @@ fun make(view: View,
          actionIcon: Drawable?,
          @ColorInt actionTextColorInt: Int = ContextCompat.getColor(view.context, android.R.color.white),
          gravity: Int = BOTTOM
-): Snackbar = with(make(view, text, duration, textIcon, backgroundColorInt, textColorInt)) {
-    if (gravity == TOP) {
-        val params = FrameLayout.LayoutParams(this.view.layoutParams.width, this.view.layoutParams.height)
-        params.gravity = Gravity.TOP
-        this.view.layoutParams = params
-    }
-    // Get the button of action.
-    this.view.findViewById<Button>(android.support.design.R.id.snackbar_action)
-            .apply {
-                // Set the left drawable of action button.
-                setCompoundDrawablesWithIntrinsicBounds(actionIcon, null, null, null)
-                // Set the padding of drawable.
-                compoundDrawablePadding = 16
-                // Make icon and action text aligned.
-                this.gravity = Gravity.CENTER
-                // Set color of action text.
-                setTextColor(actionTextColorInt)
-            }
-    this
-}
-
+): TBSnackBar = TBSnackBar().make(view, text, duration, textIcon, backgroundColorInt,
+        textColorInt, actionIcon, actionTextColorInt, gravity)
 

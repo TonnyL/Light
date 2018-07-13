@@ -21,8 +21,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:design:${libraries.supportLibraryVersion}"
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'com.androidadvance:topsnackbar:1.1.1'
 }
 repositories {
     mavenCentral()

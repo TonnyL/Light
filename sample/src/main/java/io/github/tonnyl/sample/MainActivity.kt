@@ -36,11 +36,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import io.github.tonnyl.light.*
-import io.github.tonnyl.sample.R.id.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private var position = BOTTOM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         button_success.setOnClickListener {
-            success(fab, R.string.success, Snackbar.LENGTH_SHORT, TOP)
+            success(fab, R.string.success, Snackbar.LENGTH_SHORT, position)
                     .setAction("Action", {
                         Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
                     })
@@ -56,15 +57,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         button_info.setOnClickListener {
-            info(fab, R.string.info, Snackbar.LENGTH_SHORT).show()
+            info(fab, R.string.info, Snackbar.LENGTH_SHORT, position).show()
         }
 
         button_warning.setOnClickListener {
-            warning(fab, R.string.warning, Snackbar.LENGTH_SHORT).show()
+            warning(fab, R.string.warning, Snackbar.LENGTH_SHORT, position).show()
         }
 
         button_error.setOnClickListener {
-            error(fab, R.string.error, Snackbar.LENGTH_SHORT).show()
+            error(fab, R.string.error, Snackbar.LENGTH_SHORT, position).show()
         }
 
         button_normal.setOnClickListener {
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                     .apply {
                         setSpan(StyleSpan(BOLD_ITALIC), prefix.length, prefix.length + highlight.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                     }
-            normal(fab, ssb.toString(), Snackbar.LENGTH_SHORT).show()
+            normal(fab, ssb.toString(), Snackbar.LENGTH_SHORT, position).show()
         }
 
         button_custom.setOnClickListener {
@@ -89,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                     R.color.color_cyan,
                     android.R.color.white,
                     R.drawable.ic_done_all_white_24dp,
-                    R.color.colorAccent, TOP)
+                    R.color.colorAccent, position)
                     .setAction("Done all", {
                         Toast.makeText(this@MainActivity, "Hello, Light!", Toast.LENGTH_SHORT).show()
                     })
@@ -109,7 +110,13 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
             }
             else -> {
-
+                position = if (position == BOTTOM) {
+                    item.title = "TOP"
+                    TOP
+                } else {
+                    item.title = "BOTTOM"
+                    BOTTOM
+                }
             }
         }
         return true
